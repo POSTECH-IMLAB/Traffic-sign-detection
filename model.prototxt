@@ -329,10 +329,13 @@ layer {
   }
 }
 layer {
-  name: "ReLU1"
-  type: "ReLU"
+  name: "output_type"
+  type: "Tiling"
   bottom: "Convolution8"
-  top: "Convolution8"
+  top: "output_type"
+  tiling_param {
+    tile_dim: 2
+  }
 }
 layer {
   name: "Convolution9"
@@ -360,15 +363,6 @@ layer {
       type: "constant"
       value: 0
     }
-  }
-}
-layer {
-  name: "output_pixel"
-  type: "Tiling"
-  bottom: "Convolution9"
-  top: "output_pixel"
-  tiling_param {
-    tile_dim: 8
   }
 }
 layer {
@@ -406,74 +400,9 @@ layer {
   top: "Convolution10"
 }
 layer {
-  name: "Convolution11"
-  type: "Convolution"
-  bottom: "Convolution10"
-  top: "Convolution11"
-  param {
-    lr_mult: 1
-    decay_mult: 1
-  }
-  param {
-    lr_mult: 2
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 1004
-    pad: 0
-    kernel_size: 1
-    stride: 1
-    weight_filler {
-      type: "gaussian"
-      std: 0.01
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-layer {
-  name: "output_type"
-  type: "Tiling"
-  bottom: "Convolution11"
-  top: "output_type"
-  tiling_param {
-    tile_dim: 2
-  }
-}
-layer {
-  name: "Convolution12"
-  type: "Convolution"
-  bottom: "Convolution7"
-  top: "Convolution12"
-  param {
-    lr_mult: 20
-    decay_mult: 0.1
-  }
-  param {
-    lr_mult: 20
-    decay_mult: 0
-  }
-  convolution_param {
-    num_output: 256
-    pad: 0
-    kernel_size: 1
-    stride: 1
-    weight_filler {
-      type: "gaussian"
-      std: 0.01
-    }
-    bias_filler {
-      type: "constant"
-      value: 0
-    }
-  }
-}
-layer {
   name: "output_bb"
   type: "Tiling"
-  bottom: "Convolution12"
+  bottom: "Convolution10"
   top: "output_bb"
   tiling_param {
     tile_dim: 8
