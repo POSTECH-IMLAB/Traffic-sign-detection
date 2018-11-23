@@ -21,6 +21,7 @@ Network is only composed of detection branch and classification branch.
 You can download trained weight file from following link.
 
 Mean file (https://drive.google.com/open?id=1CKp6UAAwGQoDHghs-URS2t6DcVBAr9Zm)
+
 Trained weight file 
  - trained.caffemodel (https://drive.google.com/open?id=1o54zOxlQbfD_-JLYmOWTS8k_NxFxUfvh)
  - trained.solverstate (https://drive.google.com/open?id=12D-MObATjNXT18OcRk8QQANsV82yWuBH)
