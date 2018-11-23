@@ -9,9 +9,9 @@ Detect and recognize traffic signs based on CNN.
 
 This is based on Tsinghua Tencent 100k network (https://github.com/asyncbridge/tsinghua-tencent-100k).
 
-We modified the network for Korean traffic signs.
+We modified the network for korean traffic signs.
 
-Becasue korean traffic signs datasets usually does not contain ground-truth for mask, we do not use pixel data.
+Becasue korean traffic sign datasets usually does not contain ground-truth for mask, we do not use pixel data.
 
 Network is only composed of detection branch and classification branch.
 
